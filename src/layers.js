@@ -26,7 +26,7 @@ export const rScaleL = d3.scaleLinear().domain([0.0,1.0]).range([0.1, 0.5])
 
 export const AVGGEOJSON=`${CLOUDFRONT}/assets/arctic.42days.avg.geojson`;
 export const getAvgGeojson=()=>d3.json(AVGGEOJSON).then(d=>d['features']);
-export const getDashLink=(id)=>`https://zdyi4ytj0f.execute-api.us-east-1.amazonaws.com/prod/netcdf?variable=fs,u,v,lon,lat&inode=${id}&export=bin`
+export const getDashLink=(id)=>`https://zdyi4ytj0f.execute-api.us-east-1.amazonaws.com/prod/netcdf?variable=fs,u,v,lon,lat,aep,bed&inode=${id}&export=bin`
 export const getTimeLink=(id)=>`https://zdyi4ytj0f.execute-api.us-east-1.amazonaws.com/prod/netcdf?variable=time&export=bin`
 export const getDashData=(id)=>d3.buffer(getDashLink(id)).then(buffer=>binjs.read(buffer))
 export const getTimeData=(id)=>d3.buffer(getTimeLink(id)).then(buffer=>binjs.read(buffer)['time'])

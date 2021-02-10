@@ -7,7 +7,7 @@ import {withData} from 'dataContext.js';
 // import DataText from './dataText'
 import {FormattedMessage} from 'localization';
 
-
+import _ from 'lodash';
 
 // import {getProjects,getProjectID,getProjectName,getClientName,getDescription} from 'utils.js';
 
@@ -97,21 +97,28 @@ class HoverCard extends React.PureComponent {
     
       
       
-    getMeshContent=({lng,x,y,coordinate,object:{properties:{clustered,id,elevation,aep,speed}}})=>(
+    getMeshContent=({lng,x,y,coordinate,object})=>{
+      
+      if(!object)return null;
+      if(!object.properties)return null;
+      const {clustered,id,elevation,aep,speed}=object.properties;
+      return (
     <HoverContainer x={x} y={y} maxWidth={300}>
       <Content>
       <Descriptions column={1} size="small" title=<div><span>Info </span>{!clustered?<TooltipStyle> (<FormattedMessage id={'definitions.moreinfo'}/>)</TooltipStyle>:null}</div> bordered>
       {!clustered?<Descriptions.Item label=<FormattedMessage id={'definitions.NodeID'}/>>{id}</Descriptions.Item>:null}
-    <Descriptions.Item label=<FormattedMessage id={'definitions.Longitude'}/>>{coordinate[0].toFixed(4)}</Descriptions.Item>
-    <Descriptions.Item label=<FormattedMessage id={'definitions.Latitude'}/>>{coordinate[1].toFixed(4)}</Descriptions.Item>
-    <Descriptions.Item label=<FormattedMessage id={'definitions.Bed Elev.'}/>>{elevation.toFixed(0)}</Descriptions.Item>
-    <Descriptions.Item label=<FormattedMessage id={'definitions.Speed'}/>>{speed.toFixed(2)}</Descriptions.Item>
-    <Descriptions.Item label=<FormattedMessage id={'definitions.AEP'}/>>{aep.toFixed(2)}</Descriptions.Item>
+    <Descriptions.Item label=<FormattedMessage id={'definitions.Longitude'}/>>{_.isNumber(coordinate[0])?coordinate[0].toFixed(4):coordinate[0]}</Descriptions.Item>
+    <Descriptions.Item label=<FormattedMessage id={'definitions.Latitude'}/>>{_.isNumber(coordinate[1])?coordinate[1].toFixed(4):coordinate[1]}</Descriptions.Item>
+    <Descriptions.Item label=<FormattedMessage id={'definitions.Bed Elev.'}/>>{_.isNumber(elevation)?elevation.toFixed(0):elevation}</Descriptions.Item>
+    <Descriptions.Item label=<FormattedMessage id={'definitions.Speed'}/>>{_.isNumber(speed)?speed.toFixed(2):speed}</Descriptions.Item>
+    <Descriptions.Item label=<FormattedMessage id={'definitions.AEP'}/>>{_.isNumber(aep)?aep.toFixed(1):aep}</Descriptions.Item>
         </Descriptions>
         
       </Content>
     </HoverContainer>
     )
+    
+    }
     
   
     

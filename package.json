@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "analyze": "TESTING=true webpack",
-    "build": "webpack",
+    "build": "node --max-old-space-size=8192 node_modules/webpack/bin/webpack.js",
     "deploy": "aws s3 cp ./dist/  s3://meracan-polar/site/ --recursive",
     "start": "start-storybook -p 8080 -c .storybook",
     "test": "node server.js"

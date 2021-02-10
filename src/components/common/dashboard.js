@@ -144,6 +144,7 @@ class CardContainer extends React.PureComponent {
              {dashData?<BCon hide={loading}>
             <StyledHeader>
               <Title>{`NodeID=${dashID} (${dashData['x'][0].toFixed(5)},${dashData['y'][0].toFixed(5)})`}</Title>
+              <Title>(<FormattedMessage id={'definitions.Bed Elev.'}/>{`=${dashData['bed'][0].toFixed(0)} m`})</Title>
               <Title>{`(${dashData['aep'][0].toFixed(0)} `}<DataHover value={lng=="en"?"{MWh/year}":"{MWh/année}"}/>)</Title>
             </StyledHeader>
             <Divider />
@@ -156,7 +157,7 @@ class CardContainer extends React.PureComponent {
                     yaxis={messages[lng]['plot.wlu']} 
                     csvx="Datetime"
                     csvy={messages[lng]['plot.wlu']} 
-                    id={`${dashID}_tideheight`}
+                    id={`${dashID}_tide`}
                     data={[{x:timeData,y:dashData['fs'],type: 'scattergl',mode: 'lines'}]}/>
                   </Col>
                    </Row>
@@ -167,6 +168,9 @@ class CardContainer extends React.PureComponent {
                  <MyPlot
                   title={messages[lng]["plot.speedt"]}
                   yaxis={messages[lng]['plot.speedu']}
+                  csvx="Datetime"
+                  csvy={messages[lng]['plot.speedu']}
+                  id={`${dashID}_speed`}                     
                   data={[{x:timeData,y:dashData[`uv`],type: 'scattergl',mode: 'lines'}]}
                 />
                    </Col>
@@ -179,6 +183,9 @@ class CardContainer extends React.PureComponent {
                  <MyPlot
                   title={messages[lng]["plot.speeddu"]}
                   layout={{ orientation: -90}}
+                  csvx={messages[lng]['plot.speedu']}
+                  csvy={'theta'} 
+                  id={`${dashID}_orientation`}                  
                   data={[{r:dashData[`uv`],theta:dashData[`theta`],type: 'scatterpolargl',mode: 'markers',marker:{size:2}}]}
                 />
                    </Col>
@@ -187,6 +194,9 @@ class CardContainer extends React.PureComponent {
                   title={messages[lng]["plot.speedp"]}
                   xaxis={messages[lng]['plot.speedpx']}
                   yaxis={messages[lng]['plot.speedpy']}
+                  csvx={messages[lng]['plot.speedpx']}
+                  csvy={messages[lng]['plot.speedpy']}
+                  id={`${dashID}_prob`}                   
                   data={[{x:dashData[`xcdf`],y:dashData[`cdf`],type: 'scattergl',mode: 'lines'}]}
                 />
                </Col>

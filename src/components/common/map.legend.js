@@ -9,7 +9,7 @@ import {FormattedMessage} from 'localization';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye,faCaretDown,faBullseye,faMousePointer} from '@fortawesome/free-solid-svg-icons';
 import { Dropdown,Menu,Tooltip,Popover } from 'antd';
-import {CHSLINK} from 'constants.js'
+import {NRCLINK,CHSLINK} from 'constants.js'
 import {bathyScaleI,speedScaleI,aepScaleI,bathyScaleT,speedScaleT,aepScaleT,rScaleL} from 'layers.js'
 
 import DataHover from './dataHover';
@@ -211,7 +211,7 @@ const LegendCard = ({lng,x,y,showClick,show,handleModel,modelValue}) => {
       content={<div>
         <Description><FormattedMessage id={'legend.datareference'}/></Description>
         <Bold><FormattedMessage id={'legend.references'}/></Bold>
-        <Link style={{fontSize:10,display: "inline-block"}} href={CHSLINK} target="_blank"> <FormattedMessage id={'legend.report'}/> </Link>
+        <Link style={{fontSize:10,display: "inline-block"}} href={NRCLINK} target="_blank"> <FormattedMessage id={'legend.report'}/> </Link>
       </div>}  
       trigger="click">
       <FormattedMessage id={'legend.model'}/> <StyledFontAwesome icon={faInfoCircle}/> 

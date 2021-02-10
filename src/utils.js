@@ -82,8 +82,8 @@ const convertToCSV=(objArray)=> {
 
 export const exportCSVFile=(header=['x','y'],x=[],y=[], fileTitle)=>{
    
-    const items=col2Row(x,y);
-    console.log(items)
+   const items=[]
+   for(let i=0;i<x.length;i++)items.push([x[i],y[i]])
     items.unshift(header);
     
     // Convert Object to JSON

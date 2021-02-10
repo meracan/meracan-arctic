@@ -40,7 +40,7 @@ export class DataProvider extends React.PureComponent {
     const uv=dashData['uv']=u.map((_u,i)=>Math.sqrt(u[i]*u[i]+v[i]*v[i]))
     const th=dashData['theta']=u.map((_u,i)=>Math.atan2(u[i],v[i]))
     const xy=[dashData['x'][0],dashData['y'][0]]
-    dashData['aep']=[0.0]
+    
     // dashData['lng']=lng;
     // dashData['lat']=lat;
     

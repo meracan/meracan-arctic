@@ -14,7 +14,7 @@ import Map from './map';
 
 const MapDiv = styled.div`
    overflow:hidden;
-   margin-top: 64px;
+   margin-top: 62px;
    position: absolute;
    top: 0;
    bottom: 0;

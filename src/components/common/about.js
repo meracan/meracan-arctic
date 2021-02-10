@@ -59,6 +59,7 @@ export const Description = styled.div`
   line-height: 1.5;
   overflow: hidden;
   white-space: break-spaces;
+  margin-bottom:8px;
 `;
 export const TitleContainer= styled.div`
   display:flex;
@@ -131,17 +132,18 @@ export default class MyModal extends React.PureComponent {
           title={<TitleContainer>
             <Title><FormattedMessage id={'topheader.about'}/></Title>
             <IconsContainer>
-              <Version>V0.1</Version>
+              <Version><FormattedMessage id={'version'}/></Version>
                <Tooltip title=<FormattedMessage id={'tooltip.bug'}/>>
-                  <StyledFontAwesome icon={faBug}/>
+                  <Link href="https://github.com/meracan/meracan-arctic/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5BBug%5D" target="_blank"><StyledFontAwesome icon={faBug}/></Link>
                </Tooltip>
                <Tooltip title=<FormattedMessage id={'tooltip.github'}/>>
-                  <StyledFontAwesome icon={faGithub}/>
+                  <Link href="https://github.com/meracan/meracan-arctic" target="_blank"><StyledFontAwesome icon={faGithub}/></Link>
                </Tooltip>               
             </IconsContainer>
           </TitleContainer>}
         >
         <Description>{relaceTextByLink(messages[this.props.lng]['about.intro'])}</Description>
+        <Description>{relaceTextByLink(messages[this.props.lng]['about.documentation'])}</Description>
         <Bold><FormattedMessage id={'about.termheader'}/></Bold> 
         <Description><FormattedMessage id={'about.term'}/></Description>
         <Bold><FormattedMessage id={'about.contactheader'}/></Bold> 

@@ -26,7 +26,7 @@ class App extends React.Component {
                 id={`app__${id}`}
                 ref={this.root}
               >
-               <About visible={this.state.aboutVisible} handleModal={()=>this.setState({aboutVisible:false})}/>
+               <About lng={this.props.lng} visible={this.state.aboutVisible} handleModal={()=>this.setState({aboutVisible:false})}/>
                <Header 
                   title={<FormattedMessage id={'topheader.title'} />}
                   sTitle={<FormattedMessage id={'topheader.stitle'} />}

@@ -1,17 +1,18 @@
 export default {
+  version:"V0.2",
   definitions:{
     "moreinfo":"Cliquez sur le noeud pour plus d'informations",
     "NodeID":"NodeID",
     "Longitude":"Longitude",
     "Latitude":"Latitude",
     
-    "Bed Elev.":"Élévation du lit, m",
-    "Speed":"Vitesse moyenne du courant de marée, m/s",
-    "AEP":"Production annuelle d'énergie, MWh/année",
+    "Bed Elev.":"Élévation du lit",
+    "Speed":"Vitesse moyenne du courant de marée",
+    "AEP":"Production annuelle d'énergie",
     
-    "Élévation":"Élévation du lit, m",
-    "Vitesse":"Vitesse moyenne du courant de marée, m/s",
-    "PAE":"Production annuelle d'énergie, MWh/année",
+    "Élévation":"Élévation du lit",
+    "Vitesse":"Vitesse moyenne du courant de marée",
+    "PAE":"Production annuelle d'énergie",
     
     "m":"m",
     "m/s":"m/s",
@@ -20,6 +21,16 @@ export default {
     "MWh/a":"Megawatt-hour par année",
     "MWh/année":"Megawatt-hour par année",
   },
+  about:{
+    intro:"Le {text=conseil national de recherches Canada,hyperlink=https://nrc.canada.ca/en/research-development/research-collaboration/research-centres/ocean-coastal-river-engineering-research-centre} a développé une application des ressources énergétiques marines du Canada (Arctique) pour cartographier les flux de marée et l'énergie hydrocinétique à proximité des communautés du nord au Canada.L'application permet aux utilisateurs d'étudier et d'évaluer les ressources d'énergie marémotrice potentiellement exploitables en fournissant des données spatialement et temporellement variables telles que la hauteur des marées, les courants de marée, l'élévation du lit et la production annuelle d'énergie. L'application a été développée à l'aide de divers packages tels que {text=React,hyperlink=https://reactjs.org/}, {text=Mapbox,hyperlink=https://www.mapbox.com/} et {text=DeckGL,hyperlink=https://deck.gl/}, et est actuellement stockée et fournie à l'aide des technologies {text=AWS,hyperlink=https://aws.amazon.com/}.",
+    documentation:"Le conseil national de recherches (CNRC) a étudié et quantifié les ressources énergétiques des courants de marée près des communités du nord au Canada et évalué la faisabilité de l'exploitation de ces sources d'énergie renouvelables et prévisibles pour compenser la production de diesel dans les communités du nord. La recherche a été divisée en trois étapes: Évaluation des besoins énergétiques dans les communautés du nord et données disponibles pour la modélisation des marées, la modélisation numérique des marées et le développement de l'application de l'atlas des ressources énergétiques marines du Canada (Arctique).\n\nPour plus d'informations, veuillez consulter les rapports techniques. {text=Stage 1,hyperlink=https://arctic.meracan.ca/assets/NRC-OCRE-2020-TR-013.pdf}  {text=Stage 2,hyperlink=https://arctic.meracan.ca/assets/NRC-OCRE-2020-TR-031.pdf}\n",
+    termheader:"Conditions d'utilisation",
+    term:`L'application est fournie «EN L'ÉTAT», sans garantie d'aucune sorte, expresse ou implicite, y compris, mais sans s'y limiter, les garanties de qualité marchande, d'adéquation à un usage particulier et de non-contrefaçon. En aucun cas, les auteurs ou titulaires de droits d'auteur ne pourront être tenus responsables de toute réclamation, dommages ou autre responsabilité, que ce soit dans le cadre d'une action contractuelle, délictuelle ou autre, découlant de, hors ou en relation avec l'application ou l'utilisation ou d'autres transactions application.`,
+    contactheader:"Développeur / Contact",
+    contact:`Julien Cousineau, Eng., MScA\nIngénieur de recherche\nGénie océanique, côtier et fluvial\nConseil national de recherches Canada , Gouvernement du Canada\n{Julien.Cousineau@nrc-cnrc.gc.ca}`,
+    ackheader:"Acknowledgements",
+    ack:`L'atlas des ressources énergétiques marines du Canada (Arctique)ic) et le projet d'«Inventory and Assessment of Tidal Energy Resources near Northern Communities» ont été soutenus par Savoir Polaire Canada.`
+  },  
   topheader:{
     lng:'English',
     home:"Accueil",
@@ -36,8 +47,8 @@ export default {
     model:"Données du modèle",
     report:"Rapport technique",
     chs:"SHC",
-    datareference:"Les données ont été calculées à l'aide d'un modèle numérique. Plus d'infos ... (à venir)",
-    chsreference:"Plus d'infos ... (à venir)",
+    datareference:"Les données ont été calculées à l'aide d'un modèle numérique. Pour plus d'informations, veuillez consulter les rapports techniques.",
+    chsreference:"Les données bathymétriques proviennent du Service hydrographique du Canada (SHC) NONNA-10 et NONNA-100. Les données représentent une consolidation des sources bathymétriques numériques gérées par le CHS.",
   },
   plot:{
     wl:"Hauteur de marée",
@@ -53,6 +64,8 @@ export default {
     speedpx:"Vitesse, m/s",
   },
   tooltip:{
+    bug:"Report a bug",
+    github:"Application repository",    
     hidemodel:"Cacher les Données du modèle numérique",
     showmodel:"Afficher les Données du modèle numérique",
     hidechs:"Cacher les données bathymétriques (SHC)",
